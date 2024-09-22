@@ -4,7 +4,7 @@ from .views import crea_curso, lista_cursos, profesores, cursos, estudiantes, en
 urlpatterns = [
     path('agrega-curso/<nombre>/<camada>', crea_curso),
     path('lista-cursos/', lista_cursos),
-    path("", inicio),
+    path("", inicio, name="Inicio"),
     path('profesores/', profesores, name="Profesores"),
     path('cursos/', cursos, name="Cursos"),
     path('estudiantes/', estudiantes, name="Estudiantes"),
