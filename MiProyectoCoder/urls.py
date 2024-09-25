@@ -16,9 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.shortcuts import redirect
 from app_coder.views import crea_curso, lista_cursos
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('app-coder/', include('app_coder.urls')),
+    path('', lambda request: redirect('app-coder/')),  # Redirige a 'app-coder/' cuando la URL raíz es accedida
 ]
