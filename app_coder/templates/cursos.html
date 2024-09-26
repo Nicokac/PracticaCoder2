@@ -1,14 +1,17 @@
 {% extends 'padre.html' %}
 
-
 {% block contenidoQueCambia %}
     
     <h1>Los cursos que tenemos disponibles son:</h1>
 
     <ul>
-        <li>Python básico</li>
-        <li>Javascript básico</li>
-        <li>React intermedio</li>
+        {% if lista_cursos %}
+            {% for curso in lista_cursos %}
+                <li>{{ curso.nombre }} - {{ curso.camada }}</li>
+            {% endfor %}
+        {% else %}
+            <li>No hay cursos disponibles.</li>
+        {% endif %}
     </ul>
 
 {% endblock contenidoQueCambia %}

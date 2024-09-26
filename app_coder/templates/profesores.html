@@ -1,14 +1,34 @@
 {% extends 'padre.html' %}
 
-
 {% block contenidoQueCambia %}
     
-    <h1>Los profesores de mi academia son:</h1>
+    <h1>Listado de Profesores</h1>
 
-    <ul>
-        <li>Messi</li>
-        <li>Riquelme</li>
-        <li>Cristiano</li>
-    </ul>
+    {% if profesores %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Profesión</th>
+                    <th>Camada</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for profesor in profesores %}
+                    <tr>
+                        <td>{{ profesor.nombre }}</td>
+                        <td>{{ profesor.apellido }}</td>
+                        <td>{{ profesor.email }}</td>
+                        <td>{{ profesor.profesion }}</td>
+                        <td>{{ profesor.camada }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No hay profesores registrados.</p>
+    {% endif %}
 
 {% endblock contenidoQueCambia %}

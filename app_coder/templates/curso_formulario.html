@@ -4,10 +4,16 @@
 {% block contenidoQueCambia %}
     
     <form action="{% url 'CursoFormulario' %}" method="post"> {% csrf_token %}
-
-        {{mi_formulario.as_p}}
-
-        <button  type="submit">Enviar</button>
+        {{ mi_formulario.as_p }}
+        <button type="submit">Enviar</button>
     </form>
+
+    {% if errores %}
+        <ul style="color: red;">
+            {% for error in errores %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 
 {% endblock contenidoQueCambia %}
